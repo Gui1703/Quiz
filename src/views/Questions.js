@@ -41,10 +41,6 @@ export default function Questions() {
   const [correct, setCorrect] = useState([]);
   const [score, setScore] = useState(0);
 
-  answers = [
-    questions[currentQuestion].correct_answer,
-    ...questions[currentQuestion].incorrect_answers,
-  ];
   const home = () => {
     localStorage.clear();
   };
@@ -90,6 +86,7 @@ export default function Questions() {
       sx={{
         display: "flex",
         flexDirection: "column",
+        flexWrap: "wrap",
         alignItems: "center",
         margin: "auto",
         marginTop: "50px",
@@ -223,9 +220,19 @@ export default function Questions() {
               flexDirection: "column",
               fontSize: "18px",
               marginTop: "20px",
-              // overflow: "hidden",
+              width: "100%",
+              height: "100%",
             }}
           >
+            <Box sx={{ display: "none" }}>
+              {
+                (answers = [
+                  questions[currentQuestion].correct_answer,
+                  ...questions[currentQuestion].incorrect_answers,
+                ])
+              }
+            </Box>
+
             {answers.map((answers, index) => (
               <Box
                 sx={{
