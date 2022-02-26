@@ -23,16 +23,17 @@ const Result = () => {
         marginTop: "50px",
         background: "#0072bb",
         color: "white",
-        width: 400,
+        width: "95%",
+        height: "100%",
         padding: "15px",
         borderRadius: "20px",
         textAlign: "left",
         boxShadow: "10px 10px 42px 0px rgba(0, 0, 0, 0.75)",
       }}
     >
-      <Box>
+        <Box sx={{ width: "90%", display: "flex", flexDirection: "column" }}>
         {arrayResult}
-        <Box>
+        <Box sx={{ width: "90%", display: "flex", flexDirection: "column" }}>
           <p>Correct:</p>
           {arrayCorrect.map((arrayCorrect, key) => (
             <li style={{ color: "#48ff00", margin: "10px 0 0 0" }} key={key}>

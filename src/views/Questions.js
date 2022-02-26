@@ -90,7 +90,8 @@ export default function Questions() {
         marginTop: "150px",
         background: "#0072bb",
         color: "white",
-        width: 400,
+        width: "90%",
+        height: "100%",
         padding: "15px",
         borderRadius: "20px",
         textAlign: "left",
@@ -108,10 +109,23 @@ export default function Questions() {
               alignItems: "flex-start",
               textAlign: "left",
               fontSize: "20px",
+              width: "90%",
+              height: "100%",
             }}
           >
             You scored {score} out of {questions.length}
-            <Box>
+            <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              flexWrap: "wrap",
+              textAlign: "left",
+              fontSize: "20px",
+              width: "90%",
+              height: "100%",
+            }}
+          >
               <p>Correct:</p>
               {correct.map((correct, key) => (
                 <li
@@ -220,13 +234,13 @@ export default function Questions() {
                 sx={{
                   marginTop: "15px",
                   display: "flex",
-                  flexDirection: "column",
+                  flexDirection: "column-reverse",
                   background: "transparent",
                   border: "1px solid #FFFFFF",
                   padding: "5px",
                   borderRadius: "12px",
                   alignItems: "center",
-                  width: 380,
+                  width: "100%",
                   cursor: "pointer",
                   boxShadow: "10px 10px 42px 0px rgba(0, 0, 0, 0.5)",
                   "&:hover": {
