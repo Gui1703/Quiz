@@ -29,12 +29,13 @@ const Result = () => {
         borderRadius: "20px",
         textAlign: "left",
         boxShadow: "10px 10px 42px 0px rgba(0, 0, 0, 0.75)",
+        fontSize: "18px",
       }}
     >
         <Box sx={{ width: "90%", display: "flex", flexDirection: "column" }}>
         {arrayResult}
-        <Box sx={{ width: "90%", display: "flex", flexDirection: "column" }}>
-          <p>Correct:</p>
+        <Box sx={{ width: "90%", display: "flex", flexDirection: "column"}}>
+          <p style={{marginTop: "10px"}}>Correct:</p>
           {arrayCorrect.map((arrayCorrect, key) => (
             <li style={{ color: "#48ff00", margin: "10px 0 0 0" }} key={key}>
               {arrayCorrect}
@@ -42,7 +43,7 @@ const Result = () => {
           ))}
           <p style={{ marginTop: "15px" }}>Incorrect:</p>
           {arrayIncorrect.map((arrayIncorrect, key) => (
-            <li style={{ color: "yellow" }} key={key}>
+            <li style={{ color: "yellow", margin: "10px 0 0 0" }} key={key}>
               {arrayIncorrect}
             </li>
           ))}
