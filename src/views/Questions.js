@@ -26,6 +26,7 @@ export default function Questions() {
       .get(`https://opentdb.com/api.php?amount=${arrayNumberQuest}`)
       .then((response) => {
         setQuestions(response.data.results);
+        console.log(response.data.results);
       });
   }, [arrayNumberQuest]);
 
@@ -40,6 +41,10 @@ export default function Questions() {
   const [correct, setCorrect] = useState([]);
   const [score, setScore] = useState(0);
 
+  answers = [
+    questions[currentQuestion].correct_answer,
+    ...questions[currentQuestion].incorrect_answers,
+  ];
   const home = () => {
     localStorage.clear();
   };
@@ -87,7 +92,7 @@ export default function Questions() {
         flexDirection: "column",
         alignItems: "center",
         margin: "auto",
-        marginTop: "150px",
+        marginTop: "50px",
         background: "#0072bb",
         color: "white",
         width: "90%",
@@ -115,17 +120,17 @@ export default function Questions() {
           >
             You scored {score} out of {questions.length}
             <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "flex-start",
-              flexWrap: "wrap",
-              textAlign: "left",
-              fontSize: "20px",
-              width: "90%",
-              height: "100%",
-            }}
-          >
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                flexWrap: "wrap",
+                textAlign: "left",
+                fontSize: "20px",
+                width: "90%",
+                height: "100%",
+              }}
+            >
               <p>Correct:</p>
               {correct.map((correct, key) => (
                 <li
@@ -204,7 +209,7 @@ export default function Questions() {
               </Box>
             </Box>
 
-            <Box sx={{ marginTop: "10px" }}>
+            <Box sx={{ marginTop: "10px", height: "100%" }}>
               <Box sx={{ marginBottom: "10px", fontSize: "15px" }}>
                 {questions[currentQuestion].category}
               </Box>
@@ -218,17 +223,9 @@ export default function Questions() {
               flexDirection: "column",
               fontSize: "18px",
               marginTop: "20px",
+              // overflow: "hidden",
             }}
           >
-            <Box>
-              {
-                (answers = [
-                  questions[currentQuestion].correct_answer,
-                  ...questions[currentQuestion].incorrect_answers,
-                ])
-              }
-            </Box>
-
             {answers.map((answers, index) => (
               <Box
                 sx={{
